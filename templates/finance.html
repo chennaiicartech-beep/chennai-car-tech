@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Finance</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="top-menu">
+
+    <a href="/dashboard">
+        🚘 Home
+    </a>
+
+    <a href="/finance">
+        📋 Estimates & Invoices
+    </a>
+
+    <a href="/about">
+        🏢 About Us
+    </a>
+
+    <a href="/logout">
+        Logout
+    </a>
+
+</div>
+
+
+<div class="container">
+
+<h2>📋 Repair Estimates</h2>
+
+{% for estimate in estimates %}
+
+<div class="vehicle-card">
+
+<p>Parts: ₹{{ estimate.parts_cost }}</p>
+
+<p>Labour: ₹{{ estimate.labour_cost }}</p>
+
+<p>Tax: ₹{{ estimate.taxes }}</p>
+
+<h3>Total: ₹{{ estimate.total_amount }}</h3>
+<p>
+<b>Your Response:</b>
+{{ estimate.customer_response }}
+</p>
+
+<p>
+<b>Response Time:</b>
+{{ estimate.response_time }}
+</p>
+
+<p>
+<b>Your Response:</b>
+{{ estimate.customer_response }}
+</p>
+
+{% if estimate.response_time %}
+<p>
+<b>Response Time:</b>
+{{ estimate.response_time }}
+</p>
+{% endif %}
+
+{% if estimate.customer_response == "Waiting" %}
+
+<a href="/estimate_action/{{ estimate.id }}/approve"
+class="btn">
+✅ Approve
+</a>
+
+<a href="/estimate_action/{{ estimate.id }}/reject"
+class="btn">
+❌ Reject
+</a>
+
+<a href="/estimate_action/{{ estimate.id }}/clarification"
+class="btn">
+❓ Clarification
+</a>
+
+{% else %}
+
+<div class="status-box">
+
+    <h4>
+        Selected:
+        {{ estimate.customer_response }}
+    </h4>
+
+    <p>
+        {{ estimate.response_time }}
+    </p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+<hr>
+
+<h2>🧾 My Invoices</h2>
+
+{% for invoice in invoices %}
+
+<div class="vehicle-card">
+
+<h3>{{ invoice.invoice_number }}</h3>
+
+<p>Total Amount:
+₹{{ invoice.total_amount }}
+</p>
+
+<p>Date:
+{{ invoice.created_date }}
+</p>
+
+<p>
+Warranty:
+{{ invoice.warranty_details }}
+</p>
+
+<a href="/invoice_pdf/{{ invoice.id }}"
+class="btn">
+
+📄 Download PDF
+
+</a>
+
+</div>
+
+{% endfor %}
+
+<br>
+
+<a href="/dashboard"
+class="btn">
+
+← Back
+
+</a>
+
+</div>
+
+</body>
+</html>

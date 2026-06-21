@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Create Invoice</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>🧾 Create Invoice</h2>
+
+<form method="POST">
+
+<label>Labour Details</label>
+<textarea name="labour_details"></textarea>
+
+<label>Labour Amount (₹)</label>
+<input
+type="number"
+step="0.01"
+name="labour_amount"
+required>
+
+<label>Parts Details</label>
+<textarea name="parts_details"></textarea>
+
+<label>Parts Amount (₹)</label>
+<input
+type="number"
+step="0.01"
+name="parts_amount"
+required>
+
+<label>Tax Amount (₹)</label>
+<input
+type="number"
+step="0.01"
+name="tax_amount"
+required>
+
+<label>Warranty Details</label>
+<textarea name="warranty_details"></textarea>
+
+<button type="submit">
+🧾 Generate Invoice
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

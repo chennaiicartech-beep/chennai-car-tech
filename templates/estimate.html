@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Repair Estimate</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h1>💰 Repair Estimate</h1>
+
+<div class="card">
+
+<p>
+Parts Cost:
+₹{{ estimate.parts_cost }}
+</p>
+
+<p>
+Labour Cost:
+₹{{ estimate.labour_cost }}
+</p>
+
+<p>
+Taxes:
+₹{{ estimate.taxes }}
+</p>
+
+<hr>
+
+<h2>
+Total:
+₹{{ estimate.total_amount }}
+</h2>
+
+<p>
+{{ estimate.notes }}
+</p>
+
+</div>
+
+<a href="/estimate_action/{{estimate.id}}/approve">
+<button>
+✅ Approve
+</button>
+</a>
+
+<br><br>
+
+<a href="/estimate_action/{{estimate.id}}/reject">
+<button>
+❌ Reject
+</button>
+</a>
+
+<br><br>
+
+<a href="/estimate_action/{{estimate.id}}/clarification">
+<button>
+❓ Request Clarification
+</button>
+</a>
+
+</div>
+
+</body>
+
+</html>

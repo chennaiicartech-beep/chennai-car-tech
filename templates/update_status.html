@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Update Status</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+```
+<h1>
+    <span style="color:#32CD32;">CHENNAI</span>
+    <span style="color:#006400;">CAR-TECH</span>
+</h1>
+
+<a href="/admin" class="logout-btn">
+    Back
+</a>
+```
+
+</div>
+
+<div class="container">
+
+<div class="form-container">
+
+<h2>🔧 Update Repair Status</h2>
+
+<form method="POST">
+
+<label>Status</label>
+
+<select name="status">
+
+<option>Pending</option>
+
+<option>Vehicle Received</option>
+
+<option>Diagnosis Started</option>
+
+<option>Waiting For Approval</option>
+
+<option>Repair In Progress</option>
+
+<option>Quality Check</option>
+
+<option>Ready For Delivery</option>
+
+<option>Completed</option>
+
+</select>
+
+<button type="submit">
+Update Status
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>

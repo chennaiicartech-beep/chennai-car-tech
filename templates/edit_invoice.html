@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Invoice</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2>🧾 Edit Invoice</h2>
+
+    <form method="POST">
+
+        <label>Labour Details</label>
+        <input type="text"
+               name="labour_details"
+               value="{{ invoice.labour_details }}">
+
+        <label>Labour Amount</label>
+        <input type="number"
+               step="0.01"
+               name="labour_amount"
+               value="{{ invoice.labour_amount }}">
+
+        <label>Parts Details</label>
+        <input type="text"
+               name="parts_details"
+               value="{{ invoice.parts_details }}">
+
+        <label>Parts Amount</label>
+        <input type="number"
+               step="0.01"
+               name="parts_amount"
+               value="{{ invoice.parts_amount }}">
+
+        <label>Tax Amount</label>
+        <input type="number"
+               step="0.01"
+               name="tax_amount"
+               value="{{ invoice.tax_amount }}">
+
+        <label>Warranty Details</label>
+        <textarea name="warranty_details">{{ invoice.warranty_details }}</textarea>
+
+        <button type="submit">
+            💾 Save Changes
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CHENNAI CAR-TECH Admin</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="topbar">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <div class="top-menu">
+
+    <a href="/admin">
+        🏠 Home
+    </a>
+
+    <a href="/customers">
+        👥 Customers
+    </a>
+
+    <a href="/logout">
+        🚪 Logout
+    </a>
+
+</div>
+</div>
+
+
+{% for vehicle in vehicles %}
+
+    {% for estimate in vehicle.estimates %}
+
+    <div class="card">
+
+        <p>
+            Vehicle:
+            {{ vehicle.registration_number }}
+        </p>
+
+        <p>
+            Customer Response:
+            {{ estimate.customer_response }}
+        </p>
+
+        <p>
+            Time:
+            {{ estimate.response_time }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+{% endfor %}
+
+</div>
+
+<div class="container">
+
+<h2>🛠 ADMIN DASHBOARD</h2>
+
+<div class="analytics">
+
+    <div class="card">
+        <h3>👥 Customers</h3>
+        <h2>{{ total_customers }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>🚗 Vehicles</h3>
+        <h2>{{ total_vehicles }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>📅 Bookings</h3>
+        <h2>{{ total_bookings }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>📸 Complaints</h3>
+        <h2>{{ total_complaints }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>🔧 Open Repairs</h3>
+        <h2>{{ open_repairs }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>✅ Completed Repairs</h3>
+        <h2>{{ completed_repairs }}</h2>
+    </div>
+
+</div>
+
+<hr>
+

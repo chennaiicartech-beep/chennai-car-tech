@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload Repair Evidence</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2>📸 Upload Repair Evidence</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label>Repair Stage</label>
+
+        <select name="stage">
+
+            <option>Before Repair</option>
+
+            <option>During Repair</option>
+
+            <option>After Repair</option>
+
+        </select>
+
+        <label>Technician Remarks</label>
+
+        <textarea
+        name="remarks"
+        placeholder="Enter technician remarks">
+        </textarea>
+
+        <label>Upload Photo / Video</label>
+
+        <input
+        type="file"
+        name="file"
+        required>
+
+        <button type="submit">
+            📤 Upload Evidence
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

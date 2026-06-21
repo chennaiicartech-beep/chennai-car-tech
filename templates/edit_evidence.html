@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Evidence</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>📁 Edit Repair Evidence</h2>
+
+<form method="POST">
+
+<label>Repair Stage</label>
+
+<select name="stage">
+
+<option
+{% if evidence.stage=="Before Repair" %}
+selected
+{% endif %}>
+Before Repair
+</option>
+
+<option
+{% if evidence.stage=="During Repair" %}
+selected
+{% endif %}>
+During Repair
+</option>
+
+<option
+{% if evidence.stage=="After Repair" %}
+selected
+{% endif %}>
+After Repair
+</option>
+
+</select>
+
+<br><br>
+
+<label>Remarks</label>
+
+<textarea
+name="remarks"
+rows="5">{{ evidence.remarks }}</textarea>
+
+<br><br>
+
+<button type="submit">
+💾 Update Evidence
+</button>
+
+</form>
+
+<br>
+
+<a href="/vehicle_details/{{ evidence.vehicle_id }}"
+class="btn">
+
+← Back
+
+</a>
+
+</div>
+
+</body>
+</html>

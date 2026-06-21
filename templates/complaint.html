@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Submit Complaint</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <h2>📸 Vehicle Complaint</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <textarea
+        name="desc"
+        placeholder="Describe your complaint..."
+        required></textarea>
+
+        <br><br>
+
+        <input
+        type="file"
+        name="photo"
+        accept="image/*"
+        required>
+
+        <br><br>
+
+        <button type="submit">
+            Submit Complaint
+        </button>
+
+    
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+
+</html>

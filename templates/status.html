@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Repair Status</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <h2>🔴 Live Repair Status</h2>
+
+    {% if repair %}
+
+        <div class="status-card">
+
+            <h3>
+                Status:
+            </h3>
+
+            <h2>{{ repair.status }}</h2>
+
+        </div>
+
+    {% else %}
+
+        <div class="status-card">
+
+            <h2>No Repair Status Available</h2>
+
+        </div>
+
+    {% endif %}
+    <h2>📸 Uploaded Evidence</h2>
+
+{% for item in evidence %}
+
+<div class="vehicle-card">
+
+    <h3>{{ item.stage }}</h3>
+
+    <p>
+        Remarks:
+        {{ item.remarks }}
+    </p>
+
+    <p>
+        Uploaded:
+        {{ item.upload_time }}
+    </p>
+
+    {% if item.file_type == "image" %}
+
+        <img
+        src="{{ url_for('static',
+        filename='uploads/' + item.file_name) }}"
+        width="300">
+
+    {% endif %}
+
+    {% if item.file_type == "video" %}
+
+        <video width="300" controls>
+
+            <source
+            src="{{ url_for('static',
+            filename='uploads/' + item.file_name) }}">
+
+        </video>
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+    <br>
+
+    <a href="/dashboard" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+
+</html>

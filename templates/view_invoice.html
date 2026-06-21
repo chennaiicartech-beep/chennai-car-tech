@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Invoice</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h1>🧾 Invoice</h1>
+
+<p>
+Invoice No:
+{{ invoice.invoice_number }}
+</p>
+
+<p>
+Date:
+{{ invoice.created_date }}
+</p>
+
+<hr>
+
+<h3>Labour Details</h3>
+
+<p>
+{{ invoice.labour_details }}
+</p>
+
+<p>
+₹ {{ invoice.labour_amount }}
+</p>
+
+<hr>
+
+<h3>Parts Details</h3>
+
+<p>
+{{ invoice.parts_details }}
+</p>
+
+<p>
+₹ {{ invoice.parts_amount }}
+</p>
+
+<hr>
+
+<h3>Tax Details</h3>
+
+<p>
+₹ {{ invoice.tax_amount }}
+</p>
+
+<hr>
+
+<h3>Warranty Details</h3>
+
+<p>
+{{ invoice.warranty_details }}
+</p>
+
+<hr>
+
+<h2>
+Total Amount:
+₹ {{ invoice.total_amount }}
+</h2>
+
+<a href="/invoice_pdf/{{invoice.id}}">
+<button>
+📄 Download PDF
+</button>
+</a>
+
+</div>
+
+</body>
+
+</html>

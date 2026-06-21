@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customers</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <div class="top-menu">
+
+        <a href="/admin">🏠 Home</a>
+
+        <a href="/customers">👥 Customers</a>
+
+        <a href="/logout">🚪 Logout</a>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <h2>👥 All Customers</h2>
+
+    {% for user in users %}
+
+    <div class="vehicle-card">
+
+        <h3>{{ user.name }}</h3>
+
+        <p>{{ user.email }}</p>
+
+        <a href="/customer_details/{{ user.id }}"
+           class="btn">
+           View
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

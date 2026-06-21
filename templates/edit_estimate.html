@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Estimate</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <h2>📋 Edit Repair Estimate</h2>
+
+    <form method="POST">
+
+        <label>Parts Cost (₹)</label>
+
+        <input
+        type="number"
+        step="0.01"
+        name="parts_cost"
+        value="{{ estimate.parts_cost }}"
+        required>
+
+        <br><br>
+
+        <label>Labour Cost (₹)</label>
+
+        <input
+        type="number"
+        step="0.01"
+        name="labour_cost"
+        value="{{ estimate.labour_cost }}"
+        required>
+
+        <br><br>
+
+        <label>Taxes (₹)</label>
+
+        <input
+        type="number"
+        step="0.01"
+        name="taxes"
+        value="{{ estimate.taxes }}"
+        required>
+
+        <br><br>
+
+        <label>Notes</label>
+
+        <textarea
+        name="notes"
+        rows="5">{{ estimate.notes }}</textarea>
+
+        <br><br>
+
+        <button type="submit">
+            💾 Update Estimate
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/vehicle_details/{{ estimate.vehicle_id }}"
+       class="btn">
+
+       ← Back
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

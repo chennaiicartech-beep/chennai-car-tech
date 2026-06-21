@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Vehicle</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h1>
+<span style="color:#32CD32;">CHENNAI</span>
+<span style="color:#006400;">CAR-TECH</span>
+</h1>
+
+<h2>✏️ Edit Vehicle</h2>
+
+<form method="POST">
+
+<input
+type="text"
+name="reg"
+value="{{ vehicle.registration_number }}"
+required>
+
+<br><br>
+
+<input
+type="text"
+name="model"
+value="{{ vehicle.model }}"
+required>
+
+<br><br>
+
+<input
+type="text"
+name="odo"
+value="{{ vehicle.odometer }}"
+required>
+
+<br><br>
+
+<input
+type="date"
+name="last"
+value="{{ vehicle.last_service }}"
+required>
+
+<br><br>
+
+
+
+<button type="submit">
+💾 Update Vehicle
+</button>
+
+</form>
+
+<br>
+
+<a href="/dashboard" class="back-btn">
+← Back
+</a>
+
+</div>
+
+</body>
+
+</html>

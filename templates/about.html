@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>About Chennai Car-Tech</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+  <div class="top-menu">
+
+    <a href="/dashboard">
+        🚘 Home
+    </a>
+
+    <a href="/finance">
+        📋 Estimates & Invoices
+    </a>
+
+    <a href="/about">
+        🏢 About Us
+    </a>
+
+    <a href="/logout">
+        Logout
+    </a>
+
+</div>
+
+<div class="about-container">
+
+<h1>
+<span style="color:#32CD32;">CHENNAI</span>
+<span style="color:#006400;">CAR-TECH</span>
+</h1>
+
+<h2>🚗 Company Introduction</h2>
+
+<p>
+Chennai Car-Tech is a professional multi-brand automotive service and diagnostics workshop
+ dedicated to delivering high-quality repairs, transparent communication, and customer
+  satisfaction.
+</p>
+
+<h2>📞contact</h2>
+
+<p>
+8667631265
+</p>
+<p>
+9840633265
+</p>
+
+<h2>🏢 Workshop Photos</h2>
+
+<div class="gallery">
+
+<img src="{{ url_for('static', filename='images/workshop1.jpg') }}">
+<img src="{{ url_for('static', filename='images/workshop2.jpg') }}">
+
+</div>
+
+
+
+<h2>⭐ Why Choose Chennai Car-Tech</h2>
+
+<div class="feature">
+
+<h3>👨‍🔧 EXPERT TECHNICIANS</h3>
+
+<p>
+Specialized in advanced diagnostics and troubleshooting.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>💻 ADVANCED DIAGNOSTICS</h3>
+
+<p>
+Professional scan tools, oscilloscope testing,
+ECU diagnostics, and electrical fault finding.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>📸 HONEST & TRANSPARENT</h3>
+
+<p>
+Evidence-based diagnosis with photo/video proof
+and customer approvals.
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>🚘 MULTI-BRAND SPECIALISTS</h3>
+
+<p>
+European, Japanese, Korean, and Indian vehicle expertise.
+</p>
+
+</div>
+
+<br>
+
+<a href="/dashboard" class="back-btn">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+
+</html>

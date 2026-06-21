@@ -1,0 +1,16 @@
+<h2>Repair Timeline</h2>
+
+{% for photo in photos %}
+
+<div class="card">
+
+<h4>{{ photo.type }}</h4>
+
+<img src="/static/uploads/{{ photo.image }}"
+width="100%">
+
+<p>{{ photo.upload_date }}</p>
+
+</div>
+
+{% endfor %}

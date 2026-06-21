@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CHENNAI CAR-TECH Login</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <img
+    src="{{ url_for('static', filename='images/logo.jpg') }}"
+    width="120">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <form method="POST">
+
+        <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required>
+
+        <br><br>
+
+        <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required>
+
+        <br><br>
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <br>
+
+    <p>
+        New Customer?
+    </p>
+
+    <a href="/register" class="register-btn">
+        Create Account
+    </a>
+
+</div>
+
+</body>
+</html>

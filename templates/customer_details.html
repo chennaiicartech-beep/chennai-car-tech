@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Details</title>
+<link rel="stylesheet"
+href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="topbar">
+<h1>{{ customer.name }}</h1>
+<a href="/customers" class="btn">← Back</a>
+</div>
+
+{% for vehicle in vehicles %}
+
+<div class="vehicle-card">
+
+<h2>{{ vehicle.model }}</h2>
+
+<p>
+Registration :
+{{ vehicle.registration_number }}
+</p>
+
+<p>
+ODO :
+{{ vehicle.odometer }}
+</p>
+
+<p>
+Last Service :
+{{ vehicle.last_service }}
+</p>
+
+<p>
+Next Service :
+{{ vehicle.next_service }}
+</p>
+
+<a href="/vehicle_details/{{ vehicle.id }}"
+class="btn">
+Open Vehicle File
+</a>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Complaint</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>
+        <span style="color:#32CD32;">CHENNAI</span>
+        <span style="color:#006400;">CAR-TECH</span>
+    </h1>
+
+    <h2>📸 Edit Complaint</h2>
+
+    <form method="POST">
+
+        <label>Complaint Description</label>
+
+        <textarea
+        name="desc"
+        required>{{ complaint.description }}</textarea>
+
+        <br><br>
+
+        {% if complaint.photo %}
+
+        <p>Current Photo</p>
+
+        <img
+        src="{{ url_for('static',
+        filename='uploads/' + complaint.photo) }}"
+        width="250">
+
+        <br><br>
+
+        {% endif %}
+
+        <button type="submit">
+
+            💾 Update Complaint
+
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard"
+       class="btn">
+
+       ← Back
+
+    </a>
+
+</div>
+
+</body>
+
+</html>
