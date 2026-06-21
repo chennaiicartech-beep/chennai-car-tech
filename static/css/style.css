@@ -776,6 +776,22 @@ button{
     flex: 1;
     min-width: 300px;
 }
+.dashboard-sections{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+}
+
+.dashboard-card{
+    flex:1;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .dashboard-sections{
+        flex-direction:column;
+    }
+}
 /*=======================================================*/
 /*=======================================================*/
 /*=======================================================*/
