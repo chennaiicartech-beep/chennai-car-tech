@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <title>CHENNAI CAR-TECH</title>
-
-    <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/style.css') }}">
-
-</head>
+    <title>Chennai Car-Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 <body>
 
-    {% block content %}
-    {% endblock %}
+<div class="topbar">
+    🚗 Chennai Car-Tech
+</div>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+    <a href="/dashboard">🏠 Home</a>
+    <a href="/myvehicles">🚘 Vehicles</a>
+    <a href="/repair_gallery">📸 Repairs</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
 
 </body>
-
 </html>

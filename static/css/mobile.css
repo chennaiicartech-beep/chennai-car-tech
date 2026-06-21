@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7f5;
+    padding-bottom: 70px; /* IMPORTANT: prevents bottom-nav overlap */
+}
+
+/* TOP BAR */
+.topbar {
+    background: #1b5e20;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    margin: 12px 0;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* BUTTON */
+.btn {
+    background: #2e7d32;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    z-index: 1000;
+}
+
+/* NAV LINKS */
+.bottom-nav a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ACTIVE STATE (optional enhancement) */
+.bottom-nav a.active {
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+/* DESKTOP MODE */
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    /* Make bottom nav behave like header menu */
+    .bottom-nav {
+        position: relative;
+        justify-content: center;
+        gap: 40px;
+        border-top: none;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+}
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/
+/*=======================================================*/

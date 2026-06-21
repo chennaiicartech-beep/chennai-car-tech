@@ -1,213 +1,110 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <title>Customer Dashboard</title>
-
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='css/style.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
 </head>
 
 <body>
 
 <div class="topbar">
-
     <h1>
         <span style="color:#32CD32;">CHENNAI</span>
         <span style="color:#006400;">CAR-TECH</span>
     </h1>
 
-    <a href="/logout" class="logout-btn">
-        Logout
-    </a>
-
+    <a href="/logout" class="logout-btn">Logout</a>
 </div>
 
 <div class="container">
 
     <div class="top-menu">
-
-    <a href="/dashboard">🚘 Vehicles</a>
-
-    <a href="/finance">
-        📋 Estimates & Invoices
-    </a>
-
-    <a href="/about">
-        🏢 About Us
-    </a>
-
-    
-
-</div>
+        <a href="/dashboard">🚘 Vehicles</a>
+        <a href="/finance">📋 Estimates</a>
+        <a href="/about">🏢 About</a>
+    </div>
 
     <h2>Customer Dashboard</h2>
 
-    <div class="dashboard-grid">
-
-
-    <!-- MY VEHICLES -->
+    <!-- VEHICLES -->
     <div class="dashboard-card">
-
         <h2>🚘 My Vehicles</h2>
 
         {% for vehicle in vehicles %}
-
-        <div class="vehicle-card">
+        <div class="card">
 
             <h3>{{ vehicle.model }}</h3>
-
             <p>{{ vehicle.registration_number }}</p>
+            <p>ODO: {{ vehicle.odometer }}</p>
+            <p>Last Service: {{ vehicle.last_service }}</p>
 
-            <p>ODO : {{ vehicle.odometer }}</p>
-
-            <p>Last Service : {{ vehicle.last_service }}</p>
-
-            
-
-            <a href="/book_service/{{ vehicle.id }}" class="btn">
-                ⚡ Service
-            </a>
-
-            <a href="/complaint/{{ vehicle.id }}" class="btn">
-                📸 Complaint
-            </a>
-
-            <a href="/status/{{ vehicle.id }}" class="btn">
-                🔧 Status
-           <a href="/edit_vehicle/{{ vehicle.id }}"
-             class="btn">
-            ✏ Edit
-            </a>
-
-            <a href="/delete_vehicle/{{ vehicle.id }}"
-               class="btn"
-                onclick="return confirm('Delete this vehicle?')">
-              🗑 Delete
-          </a>
+            <a href="/book_service/{{ vehicle.id }}" class="btn">⚡ Service</a>
+            <a href="/complaint/{{ vehicle.id }}" class="btn">📸 Complaint</a>
+            <a href="/status/{{ vehicle.id }}" class="btn">🔧 Status</a>
+            <a href="/edit_vehicle/{{ vehicle.id }}" class="btn">✏ Edit</a>
+            <a href="/delete_vehicle/{{ vehicle.id }}" class="btn"
+               onclick="return confirm('Delete this vehicle?')">🗑 Delete</a>
 
         </div>
-
         {% endfor %}
-
     </div>
 
-    <!-- SERVICE REQUESTS -->
+    <!-- BOOKINGS -->
     <div class="dashboard-card">
-
-        <h2>📅 My Service Requests</h2>
+        <h2>📅 Service Requests</h2>
 
         {% for booking in bookings %}
+        <div class="card">
 
-        <div class="vehicle-card">
+            {% for vehicle in vehicles %}
+                {% if vehicle.id == booking.vehicle_id %}
+                    <p><b>Vehicle:</b> {{ vehicle.registration_number }}</p>
+                    <p><b>Model:</b> {{ vehicle.model }}</p>
+                {% endif %}
+            {% endfor %}
 
-           {% for vehicle in vehicles %}
+            <p><b>Service:</b> {{ booking.service_type }}</p>
+            <p><b>Date:</b> {{ booking.booking_date }}</p>
+            <p><b>Status:</b> {{ booking.status }}</p>
 
-    {% if vehicle.id == booking.vehicle_id %}
-
-        <p>
-            Vehicle:
-            {{ vehicle.registration_number }}
-        </p>
-
-        <p>
-            Model:
-            {{ vehicle.model }}
-        </p>
-
-    {% endif %}
-
-{% endfor %}
-
-<p>Service: {{ booking.service_type }}</p>
-
-<p>Date: {{ booking.booking_date }}</p>
-
-<p>Status: {{ booking.status }}</p>
-
-            <p>Status: {{ booking.status }}</p>
-
-            <a href="/edit_booking/{{ booking.id }}"
-               class="btn">
-               ✏ Edit
-            </a>
-
-            <a href="/delete_booking/{{ booking.id }}"
-               class="btn">
-               🗑 Delete
-            </a>
+            <a href="/edit_booking/{{ booking.id }}" class="btn">✏ Edit</a>
+            <a href="/delete_booking/{{ booking.id }}" class="btn">🗑 Delete</a>
 
         </div>
-
         {% endfor %}
-
     </div>
 
     <!-- COMPLAINTS -->
     <div class="dashboard-card">
-
-        <h2>📸 My Complaints</h2>
+        <h2>📸 Complaints</h2>
 
         {% for complaint in complaints %}
-
-        <div class="vehicle-card">
+        <div class="card">
 
             {% for vehicle in vehicles %}
+                {% if vehicle.id == complaint.vehicle_id %}
+                    <p><b>Vehicle:</b> {{ vehicle.registration_number }}</p>
+                    <p><b>Model:</b> {{ vehicle.model }}</p>
+                {% endif %}
+            {% endfor %}
 
-    {% if vehicle.id == complaint.vehicle_id %}
-
-        <p>
-            Vehicle:
-            {{ vehicle.registration_number }}
-        </p>
-
-        <p>
-            Model:
-            {{ vehicle.model }}
-        </p>
-
-    {% endif %}
-
-{% endfor %}
-
-<p>
-    Complaint:
-    {{ complaint.description }}
-</p>
+            <p><b>Complaint:</b> {{ complaint.description }}</p>
 
             {% if complaint.photo %}
-            <img
-            src="{{ url_for('static',
-            filename='uploads/' + complaint.photo) }}"
-            width="200">
+                <img src="{{ url_for('static', filename='uploads/' + complaint.photo) }}"
+                     width="200">
             {% endif %}
 
-            <br><br>
-
-            <a href="/edit_complaint/{{ complaint.id }}"
-               class="btn">
-               ✏ Edit
-            </a>
-
-            <a href="/delete_complaint/{{ complaint.id }}"
-               class="btn">
-               🗑 Delete
-            </a>
+            <a href="/edit_complaint/{{ complaint.id }}" class="btn">✏ Edit</a>
+            <a href="/delete_complaint/{{ complaint.id }}" class="btn">🗑 Delete</a>
 
         </div>
-
         {% endfor %}
-
     </div>
 
-</div>
-
-    <a href="/add_vehicle" class="btn">
-        ➕ Add Vehicle
-    </a>
+    <a href="/add_vehicle" class="btn">➕ Add Vehicle</a>
 
 </div>
 
-        
+</body>
+</html>
