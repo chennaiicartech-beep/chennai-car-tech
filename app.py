@@ -20,7 +20,10 @@ app.secret_key = "cartech_secret"
 # DATABASE
 # ======================
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///cartech.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
+    "DATABASE_URL",
+    "sqlite:///cartech.db"
+)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # ======================
